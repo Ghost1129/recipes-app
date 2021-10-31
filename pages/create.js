@@ -3,7 +3,7 @@ import { useFetch } from "../hooks/UseFetch";
 import { useRouter } from 'next/router'
 
 
-function create() {
+function Create() {
     const [title,setTitle] = useState('');
     const [method,setMethod] = useState('');
     const [cookingtime,setCookingTime] = useState('');
@@ -91,4 +91,4 @@ function create() {
     )
 }
 
-export default create
+export default Create
