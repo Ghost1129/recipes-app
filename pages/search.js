@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import RecipeList from '../components/RecipeList'
 import { useFetch } from '../hooks/UseFetch'
 
-function search() {
+function Search() {
     const router = useRouter()
     
     const url = 'https://my-json-server.typicode.com/ghost1129/json/recipes?q=' + router.query.q
@@ -17,4 +17,4 @@ function search() {
     )
 }
 
-export default search
+export default Search
