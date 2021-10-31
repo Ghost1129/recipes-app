@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useFetch } from '../../hooks/useFetch'
+import { useFetch } from '../../hooks/UseFetch'
 
 const Recipe = () => {
   const router = useRouter()

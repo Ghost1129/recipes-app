@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import RecipeList from '../components/RecipeList'
-import { useFetch } from '../hooks/useFetch'
+import { useFetch } from '../hooks/UseFetch'
 
 function search() {
     const router = useRouter()
     
-    const url = 'https://ghost1129.github.io/json-server/db.json?q=' + router.query.q
+    const url = 'https://my-json-server.typicode.com/ghost1129/json/recipes?q=' + router.query.q
     const {error, isPending , data} = useFetch(url)
     return (
         <div>
