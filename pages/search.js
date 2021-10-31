@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import RecipeList from '../components/RecipeList'
-import { useFetch } from '../hooks/UseFetch'
+import { useFetch } from '../hooks/useFetch'
 
 function Search() {
     const router = useRouter()

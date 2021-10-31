@@ -1,5 +1,5 @@
 import RecipeList from "../components/RecipeList"
-import { useFetch } from "../hooks/UseFetch"
+import { useFetch } from "../hooks/useFetch"
 
 
 export default function Home() {

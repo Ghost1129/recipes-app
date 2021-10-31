@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useFetch } from "../hooks/UseFetch";
+import { useFetch } from "../hooks/useFetch";
 import { useRouter } from 'next/router'
 
 
