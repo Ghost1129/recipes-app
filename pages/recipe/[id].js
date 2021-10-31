@@ -5,7 +5,7 @@ const Recipe = () => {
   const router = useRouter()
   const { id } = router.query
 
-  const url = 'http://localhost:3000/recipes/' + id
+  const url = 'https://my-json-server.typicode.com/ghost1129/json/recipes/' + id
   console.log(url)
   const {error, isPending , data} = useFetch(url)
 

@@ -10,7 +10,7 @@ function create() {
     const [newingredient,setNewIngredient] = useState('');
     const [ingredients,setIngredients] = useState([]);
     const ingredientInput = useRef(null);
-    const {postData,data,error} = useFetch('http://localhost:3000/recipes','POST');
+    const {postData,data,error} = useFetch('https://my-json-server.typicode.com/ghost1129/json/recipes','POST');
     const history = useRouter();
 
     const handleAdd = (e)=>{

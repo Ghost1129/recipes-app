@@ -5,7 +5,7 @@ import { useFetch } from '../hooks/useFetch'
 function search() {
     const router = useRouter()
     
-    const url = 'http://localhost:3000/recipes?q=' + router.query.q
+    const url = 'https://ghost1129.github.io/json-server/db.json?q=' + router.query.q
     const {error, isPending , data} = useFetch(url)
     return (
         <div>
