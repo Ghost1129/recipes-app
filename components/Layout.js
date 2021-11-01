@@ -1,11 +1,16 @@
+import { ThemeProvider } from "../context/ThemeContext"
 import Navbar from "./Navbar"
+import ThemeSelector from "./ThemeSelector"
 
 function Layout({children}) {
     return (
-        <div className="h-screen">
+        <ThemeProvider>
+        <div className="h-screen" >
+            
             <Navbar/>
             {children}
         </div>
+        </ThemeProvider>
     )
 }
 

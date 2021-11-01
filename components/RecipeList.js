@@ -12,7 +12,7 @@ function RecipeList({recipes}) {
     }
     return (
 
-        <div className="grid grid-cols-3 gap-10 max-w-6xl mx-auto my-10">
+        <div className="grid grid-cols-3 gap-10 max-w-6xl mx-auto p-10">
             {recipes.map(recipe => (
                 <div key={recipe.id} className="p-5 rounded shadow-lg relative bg-white text-black transition duration-75 ease-in-out transform hover:rotate-3">
                     <h3 className="text-gray-700 mb-1">{recipe.title}</h3>

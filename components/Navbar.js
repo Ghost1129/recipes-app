@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { useTheme } from '../hooks/useTheme'
 import SearchBar from './SearchBar'
 
 function Navbar() {
+    const {color,toggleColor} = useTheme()
     return (
-        <div className="bg-black p-5 text-white">
+        <div className="bg-black p-5 text-white" style={{background:color}}>
             <nav className="flex items-center max-w-7xl my-auto">
             <Link href="/">
             <h1 className="mr-auto no-underline text-3xl">Cook Ninja</h1>
