@@ -1,6 +1,6 @@
 function recipe() {
     return (
-        <div>
+        <div className="bg-black">
             Recipe
         </div>
     )

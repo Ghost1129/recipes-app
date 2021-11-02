@@ -26,7 +26,7 @@ function RecipeList({recipes}) {
                     <Link href={`/recipe/${recipe.id}`}><a className="bg-gray-200 text-gray-600 block no-underline text-sm w-24 p-2 rounded text-center mx-auto mt-3">Cook This</a></Link>
                     <TrashIcon
                     onClick={() => {handleDelete(recipe.id)}}
-                    className="absolute top-10 right-10 text-black cursor-pointer h-5 w-5"
+                    className="absolute top-5 right-5 text-black cursor-pointer h-5 w-5 hover:scale-150"
                     />
                 </div>
             ))}

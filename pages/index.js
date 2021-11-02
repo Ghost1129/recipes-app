@@ -34,7 +34,7 @@ export default function Home() {
   
   const {mode} =useTheme()
   return (
-    <div className="max-w-7xl mx-auto" style={mode==='dark'?{}:{background:'black'}}>
+    <div className="max-w-screen mx-auto h-screen" style={mode==='dark'?{}:{background:'black'}}>
       {error && <p>{error}</p>}
       {isPending && <p>Loading...</p>}
       {data && <RecipeList recipes={data} />}
