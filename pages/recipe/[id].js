@@ -1,13 +1,30 @@
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import Firestore from '../../firestore.config'
 import { useFetch } from '../../hooks/useFetch'
 
 const Recipe = () => {
   const router = useRouter()
   const { id } = router.query
 
-  const url = 'https://my-json-server.typicode.com/ghost1129/json/recipes/' + id
-  console.log(url)
-  const {error, isPending , data} = useFetch(url)
+  const[data,setData] = useState(null);
+  const[isPending,setIsPending] = useState(false);
+  const[error,setError] = useState(false);
+  useEffect(() => {
+    setIsPending(true);
+    Firestore.collection('recipes').doc(id).get().then(doc => {
+      if(doc.exists){
+        setIsPending(false);
+        setData(doc.data())
+      }
+      else{
+        
+        setIsPending(false)
+        setError('Recipe Doesnt Exist')
+      }
+    })
+  },[])
+
 
   return (
       <div className="max-w-6xl my-10 mx-auto text-center bg-gray-100 p-10 box-border">

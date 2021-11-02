@@ -1,7 +1,12 @@
 import Link from 'next/link'
+import { TrashIcon } from '@heroicons/react/outline'
+import Firestore from '../firestore.config'
 
 
 function RecipeList({recipes}) {
+    const handleDelete = (id) => {
+        Firestore.collection('recipes').doc(id).delete()
+    }
 
     if (recipes.length === 0) {
         return (
@@ -19,6 +24,10 @@ function RecipeList({recipes}) {
                     <p className="text-gray-400 text-sm">{recipe.cookingTime} To Make..</p>
                     <div className="text-xs text-gray-500 my-5 mx-0 leading-6">{recipe.method.substring(0,100)}...</div>
                     <Link href={`/recipe/${recipe.id}`}><a className="bg-gray-200 text-gray-600 block no-underline text-sm w-24 p-2 rounded text-center mx-auto mt-3">Cook This</a></Link>
+                    <TrashIcon
+                    onClick={() => {handleDelete(recipe.id)}}
+                    className="absolute top-10 right-10 text-black cursor-pointer h-5 w-5"
+                    />
                 </div>
             ))}
         </div>

@@ -1,11 +1,37 @@
+import { useEffect, useState } from "react";
 import RecipeList from "../components/RecipeList"
-import { useFetch } from "../hooks/useFetch"
+import Firestore from "../firestore.config";
+
 import { useTheme } from "../hooks/useTheme"
 
 
 
 export default function Home() {
-  const {data, isPending, error} = useFetch('https://my-json-server.typicode.com/ghost1129/json/recipes')
+  const[data,setData] = useState(null);
+  const[isPending,setIsPending] = useState(false);
+  const[error,setError] = useState(false);
+
+  useEffect(() => {
+    setIsPending(true);
+    const unsub=Firestore.collection('recipes').onSnapshot(snapshot => {
+      if(snapshot.empty) {
+        setError('No Recipes To Load');
+        setIsPending(false);
+      }else{
+        const recipes = [];
+        snapshot.docs.forEach(doc => {
+          recipes.push({id:doc.id,...doc.data()});
+        })
+        setData(recipes);
+        setIsPending(false);
+      }
+      },(err)=>{
+        setError(err.message);
+        setIsPending(false);
+    })
+    return () => unsub();
+  },[])
+  
   const {mode} =useTheme()
   return (
     <div className="max-w-7xl mx-auto" style={mode==='dark'?{}:{background:'black'}}>
